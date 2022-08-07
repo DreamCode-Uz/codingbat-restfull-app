@@ -1,0 +1,27 @@
+###
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "email": "manager@gmail.com",
+  "password": "@87a9Dj9"
+}
+
+###
+PUT http://localhost:8080/api/user/id=2
+Content-Type: application/json
+
+{
+  "email": "super@gmail.com",
+  "password": "23J78Gs@"
+}
+
+###
+# ?size=2&page=1
+GET http://localhost:8080/api/user
+
+###
+GET http://localhost:8080/api/user/id=3
+
+###
+DELETE http://localhost:8080/api/user/id=4

@@ -1,0 +1,24 @@
+###
+POST http://localhost:8080/api/language
+Content-Type: application/json
+
+{
+  "name": "Java"
+}
+
+###
+PUT http://localhost:8080/api/language/id=1
+Content-Type: application/json
+
+{
+  "name": "Java"
+}
+
+###
+GET http://localhost:8080/api/language
+
+###
+GET http://localhost:8080/api/language/id=3
+
+###
+DELETE http://localhost:8080/api/language/id=3

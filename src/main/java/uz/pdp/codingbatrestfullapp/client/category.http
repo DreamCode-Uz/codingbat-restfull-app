@@ -1,0 +1,29 @@
+###
+POST http://localhost:8080/api/category
+Content-Type: application/json
+
+{
+  "name": "Recursion",
+  "languagesId": [1]
+}
+
+###
+PUT http://localhost:8080/api/category/id=3
+Content-Type: application/json
+
+{
+  "name": "Recursion",
+  "languagesId": [1]
+}
+
+###
+GET http://localhost:8080/api/category
+
+###
+GET http://localhost:8080/api/category/id=3
+
+###
+GET http://localhost:8080/api/category/language/id=1
+
+###
+DELETE http://localhost:8080/api/category/id=4

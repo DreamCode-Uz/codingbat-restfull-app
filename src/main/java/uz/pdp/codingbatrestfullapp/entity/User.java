@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,11 +19,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Email(message = "Email should be valid")
+    @NotNull
+    @Email(message = "User email should be valid")
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Min(value = 6, message = "Your password must be at least 6 characters long.")
+    @NotNull(message = "User password should be null")
+    @Size(message = "Your password must be at least 6 characters long.", min = 6)
     @Column(nullable = false)
     private String password;
 }

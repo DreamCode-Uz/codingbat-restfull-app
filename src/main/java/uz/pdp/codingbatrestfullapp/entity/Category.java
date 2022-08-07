@@ -22,4 +22,9 @@ public class Category {
 
     @ManyToMany
     private Set<Language> languages;
+
+    public Category(String name, Set<Language> languages) {
+        this.name = name;
+        this.languages = languages;
+    }
 }
