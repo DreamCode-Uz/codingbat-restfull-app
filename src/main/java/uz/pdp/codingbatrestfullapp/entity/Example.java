@@ -22,4 +22,9 @@ public class Example {
 
     @ManyToOne
     private Task task;
+
+    public Example(String text, Task task) {
+        this.text = text;
+        this.task = task;
+    }
 }

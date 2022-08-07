@@ -2,7 +2,6 @@ package uz.pdp.codingbatrestfullapp.payload;
 
 import lombok.Data;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,7 +12,7 @@ public class TaskDTO {
     private String name;
 
     @NotNull(message = "Task description must be null")
-    @Size(min = 30, max = 255)
+    @Size(min = 30, max = 500)
     private String description;
 
     private String solution;
@@ -28,4 +27,7 @@ public class TaskDTO {
 
     @NotNull(message = "categoryId must not be null.")
     private Integer categoryId;
+
+    @NotNull(message = "language id must not be null")
+    private Integer languageId;
 }

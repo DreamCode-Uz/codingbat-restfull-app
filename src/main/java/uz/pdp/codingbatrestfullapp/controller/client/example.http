@@ -1,0 +1,26 @@
+###
+POST http://localhost:8080/api/example
+Content-Type: application/json
+
+{
+  "text": "reverseStr(\"Hello\") => olleH",
+  "taskId": 1
+}
+
+###
+PUT http://localhost:8080/api/example
+Content-Type: application/json
+
+{
+  "text": "reverseStr(\"Hello\") => olleH",
+  "taskId": 1
+}
+
+###
+GET http://localhost:8080/api/example
+
+###
+GET http://localhost:8080/api/example/id=1
+
+###
+GET http://localhost:8080/api/example/category=2/language=1

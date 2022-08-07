@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/api/task
+Content-Type: application/json
+
+{
+  "name": "reverseStr",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ea excepturi laudantium quos!",
+  "solution": "Bu yerda example beriladi ishlanish bo'yicha(Ixtiyoriy)",
+  "hint": "Bu yerda aynan qanday ishlash bo'yicha ko'rsatma turadi(Ixtiyoriy)",
+  "method": "public String reverseStr(String text) {\n\t// bu yerda codeingizni yozasiz\n}",
+  "hasStar": true,
+  "categoryId": 2,
+  "languageId": 1
+}
+
+###
+PUT http://localhost:8080/api/task/id=3
+Content-Type: application/json
+
+{
+  "name": "Recursion",
+  "languagesId": [1]
+}
+
+###
+GET http://localhost:8080/api/task
+
+###
+GET http://localhost:8080/api/task/category={{categoryId}}
+
+###
+GET http://localhost:8080/api/task/category={{categoryId}}/language={{languageId}}
+
+###
+GET http://localhost:8080/api/task/id=3
+
+###
+GET http://localhost:8080/api/task/language/id=1
+
+###
+DELETE http://localhost:8080/api/task/id=4

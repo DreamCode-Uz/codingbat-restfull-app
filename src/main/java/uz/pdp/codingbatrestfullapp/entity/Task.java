@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,6 +32,20 @@ public class Task {
     @Column(nullable = false)
     private boolean hasStar;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Category category;
+
+    @ManyToOne(optional = false)
+    private Language language;
+
+    public Task(String name, String description, String solution, String hint, String method, boolean hasStar, Category category, Language language) {
+        this.name = name;
+        this.description = description;
+        this.solution = solution;
+        this.hint = hint;
+        this.method = method;
+        this.hasStar = hasStar;
+        this.category = category;
+        this.language = language;
+    }
 }
