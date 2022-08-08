@@ -34,10 +34,4 @@ public class Answer {
         this.users = users;
         this.isCorrect = isCorrect;
     }
-
-    public Answer(String result, Task task, User users) {
-        this.result = result;
-        this.task = task;
-        this.users = users;
-    }
 }
