@@ -59,11 +59,23 @@ public class TaskService {
         return status(HttpStatus.CREATED).body(repository.save(task));
     }
 
-    public ResponseEntity<?> editTask(Integer id, TaskDTO taskDTO) {
-        return null;
+    public ResponseEntity<?> editTask(Integer id, TaskDTO dto) {
+        Optional<Task> optionalTask = repository.findById(id);
+        if (!optionalTask.isPresent()) throw new RecordNotFoundException("Task not found");
+//        not duplicate
+        Optional<Category> optionalCategory = categoryRepository.findById(dto.getCategoryId());
+        if (!optionalCategory.isPresent()) throw new RecordNotFoundException("Category not found");
+        Optional<Language> optionalLanguage = languageRepository.findById(dto.getLanguageId());
+        if (!optionalLanguage.isPresent()) throw new RecordNotFoundException("Language not found");
+        Task task = new Task(id, dto.getName(), dto.getDescription(), dto.getSolution(), dto.getHint(), dto.getMethod(), dto.isHasStar(), optionalCategory.get(), optionalLanguage.get());
+        Task save = repository.save(task);
+        return ok(save);
     }
 
     public ResponseEntity<?> deleteTask(Integer id) {
-        return null;
+        Optional<Task> optionalTask = repository.findById(id);
+        if (!optionalTask.isPresent()) throw new RecordNotFoundException("Task not found");
+        repository.delete(optionalTask.get());
+        return ok("Task successfully deleted");
     }
 }

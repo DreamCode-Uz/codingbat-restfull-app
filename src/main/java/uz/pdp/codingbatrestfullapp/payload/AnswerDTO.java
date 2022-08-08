@@ -6,10 +6,10 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class AnswerDTO {
-    @NotNull(message = "Result must be null.")
+    @NotNull(message = "The result must not be null")
     private String result;
-    @NotNull(message = "Task id must not be null.")
+    @NotNull(message = "The taskId must not be null")
     private Integer taskId;
-    @NotNull(message = "The id of the user must not be null.")
+    @NotNull(message = "The userId must not be null")
     private Integer userId;
 }

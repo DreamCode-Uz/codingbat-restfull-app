@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,20 +22,20 @@ public class Answer {
     @ManyToOne(optional = false)
     private Task task;
 
-    @OneToMany
-    private Set<User> users;
+    @ManyToOne
+    private User users;
 
     @Column(name = "is_correct", nullable = false)
     private boolean isCorrect = false;
 
-    public Answer(String result, Task task, Set<User> users, boolean isCorrect) {
+    public Answer(String result, Task task, User users, boolean isCorrect) {
         this.result = result;
         this.task = task;
         this.users = users;
         this.isCorrect = isCorrect;
     }
 
-    public Answer(String result, Task task, Set<User> users) {
+    public Answer(String result, Task task, User users) {
         this.result = result;
         this.task = task;
         this.users = users;

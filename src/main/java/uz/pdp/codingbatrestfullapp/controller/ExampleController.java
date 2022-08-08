@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.codingbatrestfullapp.payload.ExampleDTO;
-import uz.pdp.codingbatrestfullapp.payload.TaskDTO;
 import uz.pdp.codingbatrestfullapp.service.ExampleService;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/example")
@@ -35,12 +36,12 @@ public class ExampleController {
     }
 
     @PostMapping
-    private ResponseEntity<?> save(@RequestBody ExampleDTO dto) {
+    private ResponseEntity<?> save(@Valid @RequestBody ExampleDTO dto) {
         return service.addExample(dto);
     }
 
     @PutMapping("/id={exampleId}")
-    private ResponseEntity<?> update(@PathVariable("exampleId") Integer id, @RequestBody ExampleDTO exampleDTO) {
+    private ResponseEntity<?> update(@PathVariable("exampleId") Integer id,@Valid @RequestBody ExampleDTO exampleDTO) {
         return service.editExample(id, exampleDTO);
     }
 
